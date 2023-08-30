@@ -270,6 +270,9 @@ onRenderJobsStatus=()=>{
 
   switch(apiJobsStatus){
     case apiJobsStatusConstants.success:
+       return this.onGetJobsView()
+    case apiJobsStatusConstants.failure:
+      return this.onGetJobsFailureView()
 
 
 
