@@ -221,6 +221,74 @@ const failureViewImg =
                         return null
                 }
             }
+
+onRetryJobs=()=>{
+  this.onGetJobDetails()
+} 
+
+onGetJobsFailureView=()=>(
+  <div className="failure-img-button-container">
+    <img className="failure-img" src={failureViewImg} alt="failure view"/>
+    <h1 className="failure-heading">Oops! Something Went Wrong<h1>
+    <p className="failure-paragraph">
+      we cannot seem to find the page you are looking for </p>
+  <div className="jobs-failure-button-container">
+  <button
+   className="failure-button>"
+     type="button"
+     onClick={this.onRetryJobs}  
+  >
+   retry
+       </button>
+       </div>
+       </div>
+)
+
+onGetJobsView=()=>{
+  const {jobsData}=this.state
+  const noJobs=jobsData.length===0
+  return noJobs?(
+    <div className="no-jobs-container">
+    <img 
+      className="no-jobs-img"
+      src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+      alt="no jobs" />
+     <h1>No jobs Found</h1>
+     <p className="We could not find any jobs.Try other filters.">
+        </div>
+     ):(   
+       <ul className="ul-job-items-container">
+          {jobsData.map(eachItem=>(
+            <JobItem key={eachItem.id} jobData={eachItem} />
+  ))}
+  </ul>
+)
+}
+
+onRenderJobsStatus=()=>{
+  const {apiJobsStatus}=this.state
+
+  switch(apiJobsStatus){
+    case apiJobsStatusConstants.success:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           
       
   
